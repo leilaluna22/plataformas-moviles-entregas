@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello Kitty - Mundo Kawaii</title>
+
+    <!-- Bootstrap 5.3.9 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #fff0f5;
+            font-family: 'Arial', sans-serif;
+            color: #663344;
+        }
+
+        /* Barra de navegación */
+        .navbar {
+            background-color: #ff8fab;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .navbar-brand:hover {
+            color: #fff0f5;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        /* Portada */
+        .portada {
+            background-color: #ffc2d1;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .portada h1 {
+            font-size: 45px;
+            color: #d6336c;
+            font-weight: bold;
+        }
+
+        .portada p {
+            font-size: 18px;
+        }
+
+        /* Ilustración kawaii */
+        .kitty {
+            position: relative;
+            width: 220px;
+            height: 175px;
+            background: white;
+            border: 4px solid #555;
+            border-radius: 48% 48% 45% 45%;
+            margin: 35px auto 10px;
+            z-index: 1;
+        }
+
+        .oreja {
+            position: absolute;
+            top: -25px;
+            width: 75px;
+            height: 75px;
+            background: white;
+            border: 4px solid #555;
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        .oreja.izquierda {
+            left: 5px;
+        }
+
+        .oreja.derecha {
+            right: 5px;
+        }
+
+        .ojo {
+            position: absolute;
+            top: 75px;
+            width: 10px;
+            height: 15px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .ojo.izquierdo {
+            left: 48px;
+        }
+
+        .ojo.derecho {
+            right: 48px;
+        }
+
+        .nariz {
+            position: absolute;
+            top: 98px;
+            left: 102px;
+            width: 13px;
+            height: 10px;
+            background: #ffd43b;
+            border: 1px solid #b58b00;
+            border-radius: 50%;
+        }
+
+        .bigote {
+            position: absolute;
+            top: 105px;
+            width: 45px;
+            height: 2px;
+            background: #555;
+        }
+
+        .bigote.uno {
+            left: 3px;
+            transform: rotate(10deg);
+        }
+
+        .bigote.dos {
+            left: 3px;
+            top: 120px;
+            transform: rotate(-10deg);
+        }
+
+        .bigote.tres {
+            right: 3px;
+            transform: rotate(-10deg);
+        }
+
+        .bigote.cuatro {
+            right: 3px;
+            top: 120px;
+            transform: rotate(10deg);
+        }
+
+        .lazo {
+            position: absolute;
+            top: -35px;
+            right: -15px;
+            width: 65px;
+            height: 45px;
+            background: #ff1744;
+            border: 3px solid #a50025;
+            border-radius: 50%;
+            transform: rotate(-15deg);
+        }
+
+        .lazo::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: #ff1744;
+            border: 3px solid #a50025;
+            border-radius: 50%;
+        }
+
+        .lazo::after {
+            content: "";
+            position: absolute;
+            left: 17px;
+            top: 10px;
+            width: 15px;
+            height: 15px;
+            background: #ffb3c6;
+            border-radius: 50%;
+            border: 2px solid #a50025;
+        }
+
+        /* Botones */
+        .btn-kitty {
+            background-color: #ff477e;
+            color: white;
+            border-radius: 25px;
+            padding: 10px 25px;
+            border: none;
+            font-weight: bold;
+        }
+
+        .btn-kitty:hover {
+            background-color: #d6336c;
+            color: white;
+        }
+
+        /* Tarjetas */
+        .seccion-tarjetas {
+            padding: 50px 20px;
+        }
+
+        .tarjeta {
+            background-color: white;
+            border: 2px solid #ffc2d1;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+        }
+
+        .tarjeta-imagen {
+            background-color: #ffe0eb;
+            font-size: 65px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .tarjeta h3 {
+            color: #d6336c;
+            font-weight: bold;
+        }
+
+        .tarjeta-contenido {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #ff8fab;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .portada {
+                padding: 35px 15px;
+            }
+
+            .portada h1 {
+                font-size: 32px;
+            }
+
+            .kitty {
+                transform: scale(0.85);
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+            .seccion-tarjetas {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">🎀 Hello Kitty</a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre Kitty</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- PORTADA -->
+    <header class="portada" id="inicio">
+
+        <div class="container">
+
+            <h1>¡Bienvenidos al mundo Kawaii!</h1>
+
+            <p>
+                Un lugar lleno de ternura, amistad y mucho rosa.
+            </p>
+
+            <!-- Dibujo de Hello Kitty hecho con CSS -->
+            <div class="kitty">
+
+                <div class="oreja izquierda"></div>
+                <div class="oreja derecha"></div>
+
+                <div class="ojo izquierdo"></div>
+                <div class="ojo derecho"></div>
+
+                <div class="nariz"></div>
+
+                <div class="bigote uno"></div>
+                <div class="bigote dos"></div>
+                <div class="bigote tres"></div>
+                <div class="bigote cuatro"></div>
+
+                <div class="lazo"></div>
+
+            </div>
+
+            <a href="#sobre" class="btn btn-kitty mt-3">
+                Conocé a Hello Kitty 💗
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- SOBRE HELLO KITTY -->
+    <section class="container text-center py-5" id="sobre">
+
+        <h2 class="fw-bold mb-4" style="color: #d6336c;">
+            🎀 Sobre Hello Kitty 🎀
+        </h2>
+
+        <p class="mx-auto" style="max-width: 750px;">
+            Hello Kitty es un personaje muy querido por su ternura,
+            amabilidad y espíritu de amistad. Su mundo está lleno
+            de colores, alegría y momentos especiales.
+            ¡Bienvenidos a este pequeño rincón kawaii!
+        </p>
+
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="seccion-tarjetas" id="galeria">
+
+        <div class="container">
+
+            <h2 class="text-center fw-bold mb-5"
+                style="color: #d6336c;">
+                Nuestro mundo kawaii 💕
+            </h2>
+
+            <div class="row g-4">
+
+                <!-- TARJETA 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="tarjeta">
+
+                        <div class="tarjeta-imagen">
+                            🎀
+                        </div>
+
+                        <div class="tarjeta-contenido">
+
+                            <h3>Moda Kawaii</h3>
+
+                            <p>
+                                Lazos, vestidos rosas y accesorios
+                                llenos de ternura.
+                            </p>
+
+                            <button class="btn btn-kitty"
+                                onclick="mostrarMensaje('¡La moda kawaii es hermosa! 🎀')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- TARJETA 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="tarjeta">
+
+                        <div class="tarjeta-imagen">
+                            🍓
+                        </div>
+
+                        <div class="tarjeta-contenido">
+
+                            <h3>Delicias</h3>
+
+                            <p>
+                                Un mundo de dulces, frutillas,
+                                pasteles y cosas deliciosas.
+                            </p>
+
+                            <button class="btn btn-kitty"
+                                onclick="mostrarMensaje('¡Qué rico! 🍓')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- TARJETA 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="tarjeta">
+
+                        <div class="tarjeta-imagen">
+                            🧸
+                        </div>
+
+                        <div class="tarjeta-contenido">
+
+                            <h3>Amistad</h3>
+
+                            <p>
+                                La amistad, el cariño y compartir
+                                momentos especiales.
+                            </p>
+
+                            <button class="btn btn-kitty"
+                                onclick="mostrarMensaje('¡La amistad es lo más importante! 💗')">
+                                Ver más
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p class="mb-1">
+            🎀 Hecho con mucho amor 🎀
+        </p>
+
+        <p class="mb-0">
+            Proyecto educativo - Mundo Kawaii
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function mostrarMensaje(mensaje) {
+            alert(mensaje);
+        }
+    </script>
+
+</body>
+</html>
